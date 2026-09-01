@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PRIMARY SEO — What Google reads to rank your page -->
+  <title>Stumpy AI — Free Adaptive AI That Learns With You | AI Companion</title>
+  <meta name="description" content="Stumpy AI is a free adaptive AI companion that learns your preferences, remembers your goals, and grows smarter with every conversation. Try the AI that truly adapts to you — no setup required.">
+  <meta name="keywords" content="AI companion, adaptive AI, AI that learns, personal AI assistant, free AI chatbot, AI memory, skill learning AI, AI for students, Stumpy AI">
+  <meta name="author" content="Stumpy AI">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://stumpyai.com/">
+
+  <!-- OPEN GRAPH — How your link looks on Facebook, LinkedIn, Discord, Reddit -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stumpyai.com/">
+  <meta property="og:title" content="Stumpy AI — The Free AI That Learns With You">
+  <meta property="og:description" content="Stumpy AI is the adaptive AI companion that remembers your goals, learns your preferences, and grows smarter every time you chat. Free forever tier. No credit card needed.">
+  <meta property="og:image" content="https://stumpyai.com/static/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Stumpy AI">
+  <meta property="og:locale" content="en_US">
+
+  <!-- TWITTER / X CARD — Rich preview when shared on X/Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@StumpyAI">
+  <meta name="twitter:title" content="Stumpy AI — The AI That Actually Remembers You">
+  <meta name="twitter:description" content="Meet Stumpy AI: the adaptive AI companion that learns your preferences, tracks your skills, and builds a personal knowledge graph. Try it free.">
+  <meta name="twitter:image" content="https://stumpyai.com/static/og-image.png">
+
+  <!-- GOOGLE STRUCTURED DATA (JSON-LD) — Powers rich results with star ratings and FAQ dropdowns -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Stumpy AI",
+    "url": "https://stumpyai.com",
+    "description": "Stumpy AI is a free adaptive AI companion that learns your preferences, remembers your goals, builds a personal knowledge graph, and adapts its personality to match how you think.",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free Starter",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "50 memories, 5 daily quizzes, 10 knowledge notes — free forever."
+      },
+      {
+        "@type": "Offer",
+        "name": "Stumpy Pro",
+        "price": "12",
+        "priceCurrency": "USD",
+        "description": "Unlimited memories, quizzes, notes, Gemini 2.0 and GPT-4o access."
+      }
+    ],
+    "creator": {
+      "@type": "Organization",
+      "name": "Stumpy AI",
+      "url": "https://stumpyai.com"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "143"
+    },
+    "featureList": [
+      "Adaptive memory that learns from every conversation",
+      "Personal knowledge graph visualization",
+      "AI-generated adaptive skill quizzes",
+      "Second Brain knowledge vault",
+      "Custom AI persona tuning",
+      "Free tier — no credit card required"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Stumpy AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stumpy AI is a free adaptive AI companion that learns your preferences, remembers your goals, builds a personal knowledge graph, and grows smarter every time you chat."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Stumpy AI free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Stumpy AI has a free forever tier with 50 memories, 5 daily adaptive quizzes, and 10 knowledge vault notes. Pro plans unlock unlimited everything for $12/month."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Stumpy AI learn from me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stumpy AI automatically extracts facts, preferences, and goals from your conversations using its built-in reflection engine. It stores these as structured memories and uses them to personalize every future response."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes Stumpy AI different from ChatGPT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unlike standard chatbots that forget everything after each session, Stumpy AI builds a permanent memory graph of who you are and what you care about. It also tracks skill mastery, runs adaptive quizzes, and maintains a personal knowledge vault — making it your true AI study and work companion."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Theme Color for Mobile Browsers -->
+  <meta name="theme-color" content="#4f46e5">
+
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="bg-[#090d16] text-slate-100 min-h-screen flex flex-col md:flex-row antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Mobile Top Header -->
+  <div class="md:hidden flex items-center justify-between p-4 glass-panel border-b border-slate-800 z-50">
+    <div class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-white shadow-lg">
+        <i data-lucide="bot" class="w-4 h-4"></i>
+      </div>
+      <span class="font-extrabold text-base tracking-tight gradient-text">Stumpy AI</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="window.chatManager.startNewChat()" class="p-2 rounded-xl bg-indigo-600 text-white text-xs font-semibold">
+        <i data-lucide="plus" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Sidebar -->
+  <aside class="w-full md:w-64 glass-panel border-r border-slate-800/80 flex flex-col justify-between p-4 shrink-0 md:h-screen md:sticky md:top-0 z-40">
+    <div class="space-y-6">
+      <!-- App Brand -->
+      <div class="hidden md:flex items-center gap-3 px-2 py-1">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-400 flex items-center justify-center text-white shadow-xl shadow-indigo-500/20">
+          <i data-lucide="bot" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h1 class="font-extrabold text-base tracking-tight gradient-text">Stumpy AI</h1>
+          <p class="text-[10px] text-slate-400 font-medium">Learns & Adapts With You</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="space-y-1">
+        <button data-tab="chat" class="nav-tab-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 transition">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="message-square" class="w-4 h-4"></i>
+            <span>Chat Companion</span>
+          </div>
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        </button>
+
+        <button data-tab="brain" class="nav-tab-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="brain-circuit" class="w-4 h-4 text-purple-400"></i>
+            <span>Brain Studio</span>
+          </div>
+          <span id="memory-count-badge" class="px-1.5 py-0.5 rounded-md text-[10px] bg-purple-950/60 text-purple-300 border border-purple-800/50">0</span>
+        </button>
+
+        <button data-tab="skills" class="nav-tab-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="target" class="w-4 h-4 text-amber-400"></i>
+            <span>Skill Mastery</span>
+          </div>
+          <span id="skills-count-badge" class="px-1.5 py-0.5 rounded-md text-[10px] bg-amber-950/60 text-amber-300 border border-amber-800/50">0</span>
+        </button>
+
+        <button data-tab="notes" class="nav-tab-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="book-marked" class="w-4 h-4 text-cyan-400"></i>
+            <span>Second Brain</span>
+          </div>
+          <span id="notes-count-badge" class="px-1.5 py-0.5 rounded-md text-[10px] bg-cyan-950/60 text-cyan-300 border border-cyan-800/50">0</span>
+        </button>
+
+        <button data-tab="persona" class="nav-tab-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="sliders" class="w-4 h-4 text-slate-400"></i>
+            <span>Persona & Settings</span>
+          </div>
+        </button>
+      </nav>
+
+      <!-- Chat History Drawer -->
+      <div class="hidden md:block pt-4 border-t border-slate-800/60">
+        <div class="flex items-center justify-between px-2 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Conversations</span>
+          <button id="new-chat-btn" class="p-1 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-indigo-300 transition" title="Start new conversation">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+        <div id="chat-sessions-list" class="space-y-1 max-h-40 overflow-y-auto pr-1"></div>
+      </div>
+    </div>
+
+    <!-- User Profile & Pro Tier Footer Widget -->
+    <div class="pt-4 border-t border-slate-800/60 flex flex-col gap-2">
+      <div id="header-user-profile" class="flex items-center justify-between px-1">
+        <!-- Injected dynamically by auth.js -->
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Dynamic Workspace -->
+  <main class="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
+    
+    <!-- TAB 1: CHAT COMPANION -->
+    <section id="tab-chat" class="tab-content flex-1 flex flex-col h-full overflow-hidden">
+      <!-- Chat Messages Container -->
+      <div id="chat-messages-container" class="flex-1 overflow-y-auto p-4 md:p-8 space-y-4"></div>
+
+      <!-- Chat Input Dock -->
+      <div class="p-4 md:p-6 glass-panel border-t border-slate-800/80 shrink-0">
+        <form id="chat-form" class="max-w-4xl mx-auto flex items-end gap-3">
+          <div class="flex-1 relative bg-slate-900/80 rounded-2xl border border-slate-700/60 focus-within:border-indigo-500 transition shadow-inner">
+            <textarea id="chat-input" rows="2" placeholder="Talk to Stumpy AI, share what you're learning, or give feedback..." class="w-full bg-transparent px-4 py-3 text-xs text-slate-100 placeholder-slate-500 focus:outline-none resize-none"></textarea>
+            <div class="flex items-center justify-between px-3 pb-2 text-[10px] text-slate-500">
+              <span>Press <kbd class="px-1 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">Enter</kbd> to send, <kbd class="px-1 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">Shift+Enter</kbd> for newline</span>
+              <span class="text-indigo-400 flex items-center gap-1">
+                <i data-lucide="zap" class="w-2.5 h-2.5"></i>
+                Auto-reflecting
+              </span>
+            </div>
+          </div>
+          <button type="submit" class="p-3.5 rounded-2xl gradient-btn text-white shadow-xl shadow-indigo-500/20 hover:scale-105 transition flex items-center justify-center shrink-0">
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- TAB 2: BRAIN STUDIO (KNOWLEDGE GRAPH & MEMORY BANK) -->
+    <section id="tab-brain" class="tab-content hidden flex-1 flex flex-col h-full overflow-y-auto p-4 md:p-8 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-100 flex items-center gap-2">
+            <i data-lucide="brain-circuit" class="w-5 h-5 text-purple-400"></i>
+            <span>Brain Studio & Knowledge Graph</span>
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">Explore the neural network of learned facts, preferences, and connections.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.app.openModal('teach-modal')" class="px-4 py-2 rounded-xl gradient-btn text-white text-xs font-semibold flex items-center gap-2 shrink-0">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Teach Stumpy AI</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Knowledge Graph Canvas Card -->
+      <div class="glass-panel rounded-2xl border border-slate-800/80 p-4 relative overflow-hidden flex flex-col">
+        <div class="flex items-center justify-between mb-3 text-xs">
+          <div class="flex items-center gap-2 font-semibold text-slate-300">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+            <span>Live Interactive Neural Map</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="window.memoryGraph.resetView()" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] text-slate-300 transition">Reset Camera</button>
+          </div>
+        </div>
+
+        <div class="w-full h-[400px] md:h-[460px] bg-[#070a12] rounded-xl relative border border-slate-900 overflow-hidden">
+          <canvas id="knowledge-graph-canvas" class="w-full h-full block"></canvas>
+          <div id="node-detail-panel" class="absolute bottom-3 left-3 right-3 sm:right-auto sm:max-w-sm z-10">
+            <div class="p-3.5 rounded-xl glass-panel border border-slate-800 text-center text-xs text-slate-500">
+              Click any node in the knowledge network to inspect its learned details and connections.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Memory Bank Table & Filter -->
+      <div class="space-y-4 pt-2">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <h3 class="text-base font-bold text-slate-200 flex items-center gap-2">
+            <i data-lucide="layers" class="w-4 h-4 text-indigo-400"></i>
+            <span>Memory Bank & Learned Facts</span>
+          </h3>
+
+          <div class="flex items-center gap-2">
+            <div class="relative">
+              <input type="text" id="memory-search-input" placeholder="Search memories..." class="bg-slate-900/80 border border-slate-800 rounded-xl px-3 py-1.5 pl-8 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 w-44 sm:w-56">
+              <i data-lucide="search" class="w-3.5 h-3.5 text-slate-500 absolute left-2.5 top-2.5"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap gap-1.5 pb-1">
+          <button data-category="all" class="memory-filter-btn px-3 py-1 rounded-xl text-xs font-semibold bg-indigo-600 text-white transition">All</button>
+          <button data-category="identity" class="memory-filter-btn px-3 py-1 rounded-xl text-xs font-semibold bg-slate-800/80 text-slate-400 hover:text-slate-200 transition">Identity</button>
+          <button data-category="preference" class="memory-filter-btn px-3 py-1 rounded-xl text-xs font-semibold bg-slate-800/80 text-slate-400 hover:text-slate-200 transition">Preferences</button>
+          <button data-category="project" class="memory-filter-btn px-3 py-1 rounded-xl text-xs font-semibold bg-slate-800/80 text-slate-400 hover:text-slate-200 transition">Projects</button>
+          <button data-category="skill" class="memory-filter-btn px-3 py-1 rounded-xl text-xs font-semibold bg-slate-800/80 text-slate-400 hover:text-slate-200 transition">Skills</button>
+          <button data-category="concept" class="memory-filter-btn px-3 py-1 rounded-xl text-xs font-semibold bg-slate-800/80 text-slate-400 hover:text-slate-200 transition">Concepts</button>
+        </div>
+
+        <!-- Memory Cards Grid -->
+        <div id="memory-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pb-8"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: SKILL MASTERY & QUIZZES -->
+    <section id="tab-skills" class="tab-content hidden flex-1 flex flex-col h-full overflow-y-auto p-4 md:p-8 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-100 flex items-center gap-2">
+            <i data-lucide="target" class="w-5 h-5 text-amber-400"></i>
+            <span>Skill Mastery & Adaptive Quizzing</span>
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">Test your retention with AI-generated micro-quizzes that adapt to your knowledge level.</p>
+        </div>
+        <button onclick="window.app.openModal('add-skill-modal')" class="px-4 py-2 rounded-xl gradient-btn text-white text-xs font-semibold flex items-center gap-2 shrink-0 self-start sm:self-auto">
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>Track New Skill</span>
+        </button>
+      </div>
+
+      <div id="skills-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-8"></div>
+    </section>
+
+    <!-- TAB 4: SECOND BRAIN / NOTES -->
+    <section id="tab-notes" class="tab-content hidden flex-1 flex flex-col h-full overflow-y-auto p-4 md:p-8 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-100 flex items-center gap-2">
+            <i data-lucide="book-marked" class="w-5 h-5 text-cyan-400"></i>
+            <span>Second Brain & Knowledge Vault</span>
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">Store cheat sheets, snippets, and documentation for Stumpy AI to cite in conversations.</p>
+        </div>
+        <button onclick="window.app.openModal('add-note-modal')" class="px-4 py-2 rounded-xl gradient-btn text-white text-xs font-semibold flex items-center gap-2 shrink-0 self-start sm:self-auto">
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>Add Knowledge Note</span>
+        </button>
+      </div>
+
+      <div class="relative max-w-md">
+        <input type="text" id="note-search-input" placeholder="Search your knowledge vault notes..." class="w-full bg-slate-900/80 border border-slate-800 rounded-xl px-3 py-2 pl-9 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500">
+        <i data-lucide="search" class="w-4 h-4 text-slate-500 absolute left-3 top-2.5"></i>
+      </div>
+
+      <div id="notes-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-8"></div>
+    </section>
+
+    <!-- TAB 5: PERSONA & SETTINGS -->
+    <section id="tab-persona" class="tab-content hidden flex-1 flex flex-col h-full overflow-y-auto p-4 md:p-8 space-y-8">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-xl font-bold text-slate-100 flex items-center gap-2">
+            <i data-lucide="sliders" class="w-5 h-5 text-indigo-400"></i>
+            <span>Persona & Intelligence Settings</span>
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">Fine-tune Stumpy's conversational style, learning thresholds, and LLM backends.</p>
+        </div>
+        <button onclick="window.billingManager.openUpgradeModal()" class="px-3.5 py-1.5 rounded-xl gradient-btn text-white text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-indigo-500/20 hover:scale-105 transition">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>View Pro Plans</span>
+        </button>
+      </div>
+
+      <!-- Stats Overview -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div class="glass-panel p-4 rounded-2xl border border-slate-800 text-center">
+          <div class="text-[11px] text-slate-500 font-semibold mb-1">Total Memories</div>
+          <div id="stat-total-memories" class="text-xl font-black text-slate-100">0</div>
+        </div>
+        <div class="glass-panel p-4 rounded-2xl border border-slate-800 text-center">
+          <div class="text-[11px] text-slate-500 font-semibold mb-1">Pinned Facts</div>
+          <div id="stat-pinned-memories" class="text-xl font-black text-amber-400">0</div>
+        </div>
+        <div class="glass-panel p-4 rounded-2xl border border-slate-800 text-center">
+          <div class="text-[11px] text-slate-500 font-semibold mb-1">Tracked Skills</div>
+          <div id="stat-total-skills" class="text-xl font-black text-indigo-400">0</div>
+        </div>
+        <div class="glass-panel p-4 rounded-2xl border border-slate-800 text-center">
+          <div class="text-[11px] text-slate-500 font-semibold mb-1">Avg Mastery</div>
+          <div id="stat-avg-mastery" class="text-xl font-black text-emerald-400">0%</div>
+        </div>
+        <div class="glass-panel p-4 rounded-2xl border border-slate-800 text-center">
+          <div class="text-[11px] text-slate-500 font-semibold mb-1">Vault Notes</div>
+          <div id="stat-total-notes" class="text-xl font-black text-cyan-400">0</div>
+        </div>
+        <div class="glass-panel p-4 rounded-2xl border border-slate-800 text-center">
+          <div class="text-[11px] text-slate-500 font-semibold mb-1">Total Turns</div>
+          <div id="stat-total-turns" class="text-xl font-black text-purple-400">0</div>
+        </div>
+      </div>
+
+      <!-- Settings Form -->
+      <form id="settings-form" class="max-w-2xl space-y-6 glass-panel p-6 rounded-2xl border border-slate-800">
+        <!-- Persona Sliders -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-bold text-slate-200 border-b border-slate-800 pb-2">Adaptive Persona Tuner</h3>
+
+          <div>
+            <div class="flex justify-between text-xs font-semibold mb-1.5">
+              <span class="text-slate-300">Verbosity & Conciseness</span>
+              <span id="conciseness-val" class="text-indigo-400">Balanced Detail</span>
+            </div>
+            <input type="range" id="setting-conciseness" min="0" max="100" value="50" class="w-full cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+              <span>Deep Explanations</span>
+              <span>Ultra-Concise Bullets</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-semibold mb-1.5">
+              <span class="text-slate-300">Tone & Formality</span>
+              <span id="formality-val" class="text-indigo-400">Polished & Friendly</span>
+            </div>
+            <input type="range" id="setting-formality" min="0" max="100" value="40" class="w-full cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+              <span>Casual & Energetic</span>
+              <span>Academic & Formal</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Teaching & Reasoning Style</label>
+            <select id="setting-style" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-indigo-500">
+              <option value="balanced">Balanced (Direct answers with practical examples)</option>
+              <option value="socratic">Socratic Tutor (Guides through thought-provoking questions)</option>
+              <option value="direct">Direct & Crisp (Immediate code/solution without fluff)</option>
+              <option value="coach">Encouraging Coach (Milestone tracking and constructive critiques)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- LLM Backend Provider -->
+        <div class="space-y-4 pt-4 border-t border-slate-800">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-slate-200">LLM Provider Engine</h3>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-950 text-indigo-300 border border-indigo-800">PRO UNLOCKS CLOUD LLMS</span>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Active Intelligence Backend</label>
+            <select id="setting-provider" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-indigo-500">
+              <option value="builtin">Built-in Smart Adaptive Engine (Included in Free)</option>
+              <option value="gemini">🌟 Google Gemini API (gemini-2.0-flash / 1.5-pro)</option>
+              <option value="openai">🌟 OpenAI API (gpt-4o / gpt-4o-mini)</option>
+            </select>
+          </div>
+
+          <!-- Gemini Config Box -->
+          <div id="gemini-config-box" class="hidden space-y-3 p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Google Gemini API Key</label>
+              <input type="password" id="setting-gemini-key" placeholder="AIzaSy..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200">
+            </div>
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Model Name</label>
+              <input type="text" id="setting-gemini-model" value="gemini-2.0-flash" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200">
+            </div>
+          </div>
+
+          <!-- OpenAI Config Box -->
+          <div id="openai-config-box" class="hidden space-y-3 p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">OpenAI API Key</label>
+              <input type="password" id="setting-openai-key" placeholder="sk-..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200">
+            </div>
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Model Name</label>
+              <input type="text" id="setting-openai-model" value="gpt-4o-mini" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 px-4 rounded-xl gradient-btn text-white text-xs font-semibold">
+          Save Settings & Update Persona
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <!-- MODAL: AUTH / SIGN IN -->
+  <div id="auth-modal" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-panel w-full max-w-md rounded-2xl border border-slate-700/80 p-6 space-y-4 shadow-2xl animate-fadeIn">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+        <h3 class="text-sm font-bold text-slate-100 flex items-center gap-2">
+          <i data-lucide="user-check" class="w-4 h-4 text-indigo-400"></i>
+          <span>Sign In / Create Account</span>
+        </h3>
+        <button onclick="window.app.closeModal('auth-modal')" class="p-1 rounded text-slate-400 hover:text-slate-200">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Auth Mode Tabs -->
+      <div class="flex rounded-xl bg-slate-900 p-1 border border-slate-800 text-xs font-semibold">
+        <button id="auth-tab-login" data-mode="login" class="auth-tab-toggle flex-1 py-1.5 rounded-lg bg-indigo-600 text-white transition">Sign In</button>
+        <button id="auth-tab-register" data-mode="register" class="auth-tab-toggle flex-1 py-1.5 rounded-lg text-slate-400 hover:text-white transition">Register</button>
+      </div>
+
+      <!-- Login Form -->
+      <div id="login-box">
+        <form id="login-form" class="space-y-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Email Address</label>
+            <input type="email" id="login-email" placeholder="you@domain.com" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Password</label>
+            <input type="password" id="login-password" placeholder="••••••••" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+          </div>
+          <button type="submit" class="w-full py-2.5 rounded-xl gradient-btn text-white font-bold transition">
+            Sign In
+          </button>
+        </form>
+      </div>
+
+      <!-- Register Form -->
+      <div id="register-box" class="hidden">
+        <form id="register-form" class="space-y-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Display Name</label>
+            <input type="text" id="reg-name" placeholder="Alex" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Email Address</label>
+            <input type="email" id="reg-email" placeholder="you@domain.com" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Password</label>
+            <input type="password" id="reg-password" placeholder="••••••••" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+          </div>
+          <button type="submit" class="w-full py-2.5 rounded-xl gradient-btn text-white font-bold transition">
+            Create Free Account
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PRICING & UPGRADE TO PRO -->
+  <div id="pricing-modal" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-panel w-full max-w-2xl rounded-3xl border border-indigo-500/40 p-6 sm:p-8 space-y-6 shadow-2xl animate-fadeIn">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+        <div>
+          <h3 class="text-lg font-black text-slate-100 flex items-center gap-2">
+            <i data-lucide="sparkles" class="w-5 h-5 text-amber-400"></i>
+            <span>Upgrade to <span class="gradient-text">Stumpy Pro</span></span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Unlock unlimited memory, cloud LLMs, and infinite skill mastery.</p>
+        </div>
+        <button onclick="window.app.closeModal('pricing-modal')" class="p-1.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div id="upgrade-reason-alert" class="hidden"></div>
+
+      <!-- Pricing Plans injected by billing.js -->
+      <div id="pricing-plans-container"></div>
+    </div>
+  </div>
+
+  <!-- MODAL: TEACH STUMPY AI -->
+  <div id="teach-modal" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-panel w-full max-w-md rounded-2xl border border-slate-700/80 p-6 space-y-4 shadow-2xl animate-fadeIn">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+        <h3 class="text-sm font-bold text-slate-100 flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>
+          <span>Teach Stumpy AI a New Memory</span>
+        </h3>
+        <button onclick="window.app.closeModal('teach-modal')" class="p-1 rounded text-slate-400 hover:text-slate-200">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <form id="teach-memory-form" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Memory Category</label>
+          <select id="teach-category" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+            <option value="preference">Preference (Writing style, stack choice, UI preferences)</option>
+            <option value="identity">Identity (Name, role, background, bio)</option>
+            <option value="project">Project (Architecture, repo goals, tools)</option>
+            <option value="skill">Skill (Learning goals, target subjects)</option>
+            <option value="concept">Concept (Definitions, domain knowledge)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Topic Key</label>
+          <input type="text" id="teach-topic" placeholder="e.g. preferred_frontend_framework" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Fact / Instruction to Remember</label>
+          <textarea id="teach-content" rows="3" placeholder="e.g. Always use Tailwind CSS and avoid inline styles." required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 resize-none"></textarea>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <input type="checkbox" id="teach-pinned" checked class="rounded border-slate-700 bg-slate-900 text-indigo-600 focus:ring-0">
+          <label for="teach-pinned" class="text-slate-300 font-medium">Pin to priority memory (always consider in prompt context)</label>
+        </div>
+
+        <div class="pt-2 flex justify-end gap-2">
+          <button type="button" onclick="window.app.closeModal('teach-modal')" class="px-4 py-2 rounded-xl text-slate-400 hover:text-slate-200">Cancel</button>
+          <button type="submit" class="px-5 py-2 rounded-xl gradient-btn text-white font-semibold">Save to Brain</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADAPTIVE QUIZ -->
+  <div id="quiz-modal" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-panel w-full max-w-xl rounded-2xl border border-slate-700/80 p-6 shadow-2xl animate-fadeIn">
+      <div id="quiz-content"></div>
+    </div>
+  </div>
+
+  <!-- MODAL: TRACK NEW SKILL -->
+  <div id="add-skill-modal" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-panel w-full max-w-md rounded-2xl border border-slate-700/80 p-6 space-y-4 shadow-2xl animate-fadeIn">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+        <h3 class="text-sm font-bold text-slate-100 flex items-center gap-2">
+          <i data-lucide="target" class="w-4 h-4 text-amber-400"></i>
+          <span>Track New Learning Skill</span>
+        </h3>
+        <button onclick="window.app.closeModal('add-skill-modal')" class="p-1 rounded text-slate-400 hover:text-slate-200">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <form id="add-skill-form" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Skill or Subject Name</label>
+          <input type="text" id="skill-name" placeholder="e.g. Rust Concurrency, Docker, Graph Neural Networks" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Category</label>
+          <select id="skill-category" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+            <option value="Programming">Programming & Frameworks</option>
+            <option value="DevOps">DevOps & Cloud</option>
+            <option value="Data Science">Data Science & AI</option>
+            <option value="System Design">Architecture & System Design</option>
+            <option value="General">General / Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Learning Goals / Notes</label>
+          <textarea id="skill-notes" rows="2" placeholder="e.g. Focus on memory lifetimes, channels, and async tokio runtime." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 resize-none"></textarea>
+        </div>
+
+        <div class="pt-2 flex justify-end gap-2">
+          <button type="button" onclick="window.app.closeModal('add-skill-modal')" class="px-4 py-2 rounded-xl text-slate-400 hover:text-slate-200">Cancel</button>
+          <button type="submit" class="px-5 py-2 rounded-xl gradient-btn text-white font-semibold">Start Tracking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD KNOWLEDGE NOTE -->
+  <div id="add-note-modal" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-panel w-full max-w-lg rounded-2xl border border-slate-700/80 p-6 space-y-4 shadow-2xl animate-fadeIn">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+        <h3 class="text-sm font-bold text-slate-100 flex items-center gap-2">
+          <i data-lucide="book-open" class="w-4 h-4 text-cyan-400"></i>
+          <span>Add Knowledge Note to Second Brain</span>
+        </h3>
+        <button onclick="window.app.closeModal('add-note-modal')" class="p-1 rounded text-slate-400 hover:text-slate-200">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <form id="add-note-form" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Note Title</label>
+          <input type="text" id="note-title" placeholder="e.g. Async Error Handling Patterns in FastAPI" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Category</label>
+            <select id="note-category" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+              <option value="code_snippet">Code Snippet</option>
+              <option value="architecture">Architecture</option>
+              <option value="cheatsheet">Cheat Sheet</option>
+              <option value="concept">Concept / Guide</option>
+              <option value="general">General</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Tags (comma separated)</label>
+            <input type="text" id="note-tags" placeholder="python, async, api" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Content (Markdown supported)</label>
+          <textarea id="note-content" rows="6" placeholder="Paste your cheat sheet, markdown notes, or code..." required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 font-mono text-xs resize-none"></textarea>
+        </div>
+
+        <div class="pt-2 flex justify-end gap-2">
+          <button type="button" onclick="window.app.closeModal('add-note-modal')" class="px-4 py-2 rounded-xl text-slate-400 hover:text-slate-200">Cancel</button>
+          <button type="submit" class="px-5 py-2 rounded-xl gradient-btn text-white font-semibold">Save & Index</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Hub -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/auth.js"></script>
+  <script src="/static/js/billing.js"></script>
+  <script src="/static/js/memory_graph.js"></script>
+  <script src="/static/js/memory_bank.js"></script>
+  <script src="/static/js/skills.js"></script>
+  <script src="/static/js/notes.js"></script>
+  <script src="/static/js/persona.js"></script>
+  <script src="/static/js/chat.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
