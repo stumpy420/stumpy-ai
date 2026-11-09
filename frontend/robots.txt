@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stumpyai.com/sitemap.xml
+Sitemap: https://web-production-66a7b.up.railway.app/sitemap.xml
