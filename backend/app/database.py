@@ -21,6 +21,9 @@ def init_db():
         name TEXT NOT NULL,
         tier TEXT DEFAULT 'free',
         is_guest INTEGER DEFAULT 0,
+        stripe_customer_id TEXT,
+        stripe_subscription_id TEXT,
+        stripe_checkout_session_id TEXT,
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
     );
@@ -203,6 +206,14 @@ def init_db():
             INSERT INTO users (id, email, password_hash, name, tier, is_guest, created_at, updated_at)
             VALUES (1, 'guest@stumpy.ai', 'guest_mode_unhashed', 'Guest Explorer', 'free', 1, ?, ?)
         """, (now, now))
+
+    # Migration: Add Stripe columns to users table if they don't exist
+    try:
+        cursor.execute("SELECT stripe_customer_id FROM users LIMIT 1")
+    except Exception:
+        cursor.execute("ALTER TABLE users ADD COLUMN stripe_customer_id TEXT")
+        cursor.execute("ALTER TABLE users ADD COLUMN stripe_subscription_id TEXT")
+        cursor.execute("ALTER TABLE users ADD COLUMN stripe_checkout_session_id TEXT")
 
     conn.commit()
     conn.close()

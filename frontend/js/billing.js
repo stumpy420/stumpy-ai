@@ -1,9 +1,11 @@
 // Billing & Subscription Manager for Stumpy AI SaaS
+// Supports real Stripe Checkout + fallback demo mode
 
 class BillingManager {
   constructor() {
     this.plans = [];
     this.initEvents();
+    this.checkUpgradeStatus();
   }
 
   initEvents() {
@@ -13,6 +15,27 @@ class BillingManager {
         this.openUpgradeModal();
       });
     });
+  }
+
+  checkUpgradeStatus() {
+    // Check if user just came back from Stripe Checkout
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('upgrade') === 'success') {
+      // Clean the URL
+      window.history.replaceState({}, '', '/');
+      // Refresh user data then show success toast
+      setTimeout(async () => {
+        if (window.authManager) {
+          await window.authManager.initSession();
+          window.app?.showToast('🌟 Welcome to Stumpy Pro! All limits unlocked!', 'success');
+        }
+      }, 500);
+    } else if (params.get('upgrade') === 'cancelled') {
+      window.history.replaceState({}, '', '/');
+      setTimeout(() => {
+        window.app?.showToast('Upgrade cancelled. You can upgrade anytime.', 'info');
+      }, 500);
+    }
   }
 
   async loadPlans() {
@@ -146,11 +169,11 @@ class BillingManager {
           </div>
 
           ${currentTier === 'pro' ? `
-            <button onclick="window.billingManager.cancelPro()" class="w-full py-2.5 px-4 rounded-xl bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-xs font-bold">
-              ✓ Pro Active (Click to Cancel)
+            <button onclick="window.billingManager.managePro()" class="w-full py-2.5 px-4 rounded-xl bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-xs font-bold">
+              ✓ Pro Active — Manage Subscription
             </button>
           ` : `
-            <button onclick="window.billingManager.startUpgrade()" class="w-full py-3 px-4 rounded-xl gradient-btn text-white text-xs font-black shadow-xl shadow-indigo-500/30 hover:scale-105 transition flex items-center justify-center gap-2">
+            <button onclick="window.billingManager.startUpgrade()" id="upgrade-btn" class="w-full py-3 px-4 rounded-xl gradient-btn text-white text-xs font-black shadow-xl shadow-indigo-500/30 hover:scale-105 transition flex items-center justify-center gap-2">
               <i data-lucide="zap" class="w-4 h-4 text-amber-300"></i>
               <span>Upgrade to Stumpy Pro ($12/mo)</span>
             </button>
@@ -163,29 +186,67 @@ class BillingManager {
   }
 
   async startUpgrade() {
+    const btn = document.getElementById('upgrade-btn');
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = `
+        <svg class="animate-spin w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+        <span>Redirecting to checkout...</span>
+      `;
+    }
+
     try {
-      const updatedUser = await api.upgradePlan('pro_monthly');
-      window.authManager.currentUser = updatedUser;
-      window.authManager.updateUserUI();
-      window.app.closeModal('pricing-modal');
-      window.app.showToast('🌟 Congratulations! Upgraded to Stumpy Pro! All limits unlocked!', 'success');
-      await window.authManager.refreshAllData();
+      const result = await api.upgradePlan('pro_monthly');
+
+      if (result.checkout_url) {
+        // Stripe is configured — redirect to Stripe's hosted checkout page
+        window.location.href = result.checkout_url;
+      } else {
+        // Demo mode — instant upgrade (Stripe not configured)
+        window.authManager.currentUser = result;
+        window.authManager.updateUserUI();
+        window.app.closeModal('pricing-modal');
+        window.app.showToast('🌟 Congratulations! Upgraded to Stumpy Pro! All limits unlocked!', 'success');
+        await window.authManager.refreshAllData();
+      }
     } catch (err) {
       window.app.showToast('Upgrade failed: ' + err.message, 'error');
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = `
+          <i data-lucide="zap" class="w-4 h-4 text-amber-300"></i>
+          <span>Upgrade to Stumpy Pro ($12/mo)</span>
+        `;
+        lucide.createIcons();
+      }
     }
   }
 
-  async cancelPro() {
-    if (!confirm('Are you sure you want to revert to the Free tier?')) return;
+  async managePro() {
     try {
-      const updatedUser = await api.cancelPlan();
-      window.authManager.currentUser = updatedUser;
-      window.authManager.updateUserUI();
-      window.app.closeModal('pricing-modal');
-      window.app.showToast('Reverted to Free tier.', 'info');
-      await window.authManager.refreshAllData();
+      const result = await api.cancelPlan();
+
+      if (result.portal_url) {
+        // Redirect to Stripe Customer Portal (manage/cancel subscription)
+        window.location.href = result.portal_url;
+      } else {
+        // Demo mode — instant cancel
+        window.authManager.currentUser = result;
+        window.authManager.updateUserUI();
+        window.app.closeModal('pricing-modal');
+        window.app.showToast('Reverted to Free tier.', 'info');
+        await window.authManager.refreshAllData();
+      }
     } catch (err) {
-      window.app.showToast('Failed to cancel: ' + err.message, 'error');
+      window.app.showToast('Failed: ' + err.message, 'error');
     }
+  }
+
+  // Legacy method name for backwards compatibility
+  async cancelPro() {
+    return this.managePro();
   }
 }
